@@ -40,7 +40,16 @@ for (let i=1;i<=15;i++){
 
     grid.appendChild(product);
     pnum.style.cssText="display:block;font-size:25px;color:#23a96e;margin-bottom:10px;";
-    
+    let ptext = document.createElement("span");
+    ptext.textContent="Product";
+    product.appendChild(ptext);
+    ptext.style.cssText="display:block;font-size:15px;color:#888;";
 }
 
     document.body.appendChild(product);
+    let feeter = document.createElement("div");
+    feeter.textContent="Copyright 2024";
+    document.body.appendChild(feeter);
+    feeter.style.cssText="background-color:#23a96e;color:white;text-align:center;padding:20px;font-family:Arial, sans-serif;margin-top:20px; position:fixed;bottom:0;width:100%";
+    document.body.style.cssText="margin:0;padding:0;background-color:#eaebecff;";
+    document.title="Document ";
