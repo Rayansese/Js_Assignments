@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Example</title>
+</head>
+<body>
+  <form>
+    <label>الاسم: <input type="text" id="name"></label><br>
+    <label>الإيميل: <input type="email" id="email"></label><br>
+    <label>العمر: <input type="number" id="age"></label><br>
+
+    <label>المدينة:
+      <select id="city">
+        <option value="">اختر مدينة</option>
+        <option value="damascus">دمشق</option>
+        <option value="aleppo">حلب</option>
+        <option value="homs">حمص</option>
+        <option value="latakia">اللاذقية</option>
+        <option value="daraa">درعا</option>
+      </select>
+    </label>
+  </form>
+
+  <script>
+    const inputs = document.querySelectorAll("#name, #email, #age");
+    const select = document.getElementById("city");
+
+    // حفظ التغييرات
+    inputs.forEach(input => {
+      input.addEventListener("input", () => {
+        sessionStorage.setItem(input.id, input.value);
+      });
+    });
+
+    select.addEventListener("change", () => {
+      sessionStorage.setItem("city", select.value);
+    });
+
+    // استرجاع القيم بعد Reload
+    window.addEventListener("load", () => {
+      inputs.forEach(input => {
+        if (sessionStorage.getItem(input.id)) {
+          input.value = sessionStorage.getItem(input.id);
+        }
+      });
+
+      if (sessionStorage.getItem("city")) {
+        select.value = sessionStorage.getItem("city");
+      }
+    });
+  </script>
+</body>
+</html>
